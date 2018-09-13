@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+certifi = "==2018.8.24"
+chardet = "==3.0.4"
+click = "==6.7"
+dateutils = "==0.6.6"
+idna = "==2.7"
+itsdangerous = "==0.24"
+python-dateutil = "==2.7.3"
+pytz = "==2018.5"
+requests = "==2.19.1"
+six = "==1.11.0"
+"urllib3" = "==1.23"
+Flask = "==1.0.2"
+"Jinja2" = "==2.10"
+MarkupSafe = "==1.0"
+Werkzeug = "==0.14.1"
+XlsxWriter = "==1.1.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"

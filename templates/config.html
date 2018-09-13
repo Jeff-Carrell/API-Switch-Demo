@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="container">
+<h1>Switch Port Update</h1> <a class="btn btn-primary" href="/ivlan_config">Configure Ignored VLANS</a><br><br>
+
+<form action="/config" method="POST">
+<table class="table table-striped table-hover table-sm">
+  <tr>
+    <td class="tg-0lax">Switch Username</td>
+    <td class="tg-0lax"><input type="text" name="user" value="{{ data['user'] }}"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Switch Password</td>
+    <td class="tg-0lax"><input type="password" name="password" ></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Switch IP</td>
+    <td class="tg-0lax"><input type="text" name="ipadd" value="{{ data['ipadd'] }}"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Customer Name</td>
+    <td class="tg-0lax"><input type="text" name="title" value="{{ data['title'] }}"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Show Port Status</td>
+    <td class="tg-0lax">
+      <select name="port_status">
+            <option value="0" {% if  data['port_status']=="0" %} selected="selected"{% endif %}>No</option>
+            <option value="1" {% if  data['port_status']=="1" %} selected="selected"{% endif %}>Yes</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Port Range</td>
+    <td class="tg-0lax"><input type="text" name="port_start" value="{{ data['port_start'] }}" size="3" > - <input type="text" name="port_end" value="{{ data['port_end'] }}" size="3"></td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" colspan="2" align="center"><input type="submit" class="btn btn-outline-success btn-lg" value="Submit Update"></td>
+
+</table>
+</form>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,1 @@
+{"port_start": "30", "port_end": "36", "user": "manager", "password": "Aruba123", "ipadd": "10.0.1.16", "title": "Cyberdyne", "ignored_vlans": ["1", "5", "10", "13", "20", "21", "26", "55", "100", "101", "102", "103", "1014"], "port_status": "1"}

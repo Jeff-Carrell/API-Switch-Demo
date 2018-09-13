@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div class="container">
+<h1>VLANS to Ignore</h1>
+<a class="btn btn-primary" href="/config">Back to Configuration</a><br><br>
+<form action="/ivlan_config" method="POST">
+<table style="width: 30%;" class="table table-striped table-hover table-sm">
+<input type="hidden" name="port_status" value="{{ data['port_status'] }}">
+  <tr>
+    <td class="tg-0lax">VLANs to Ignore</td>
+    <td class="tg-0lax">
+      {% for i in avc %}
+
+          {% if avc[i] == True %}
+            <input type="checkbox" name="ivlans" value="{{ i }}" checked="checked">{{ i }}<br>
+          {% else %}
+            <input type="checkbox" name="ivlans" value="{{ i }}">{{ i }}<br>
+          {% endif %}
+
+      {% endfor %}
+
+    </td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" colspan="2" align="center"><input type="submit" class="btn btn-outline-success btn-lg" value="Submit Update"></td>
+
+</table>
+</form>
+
+</div>
+
+
+{% endblock %}

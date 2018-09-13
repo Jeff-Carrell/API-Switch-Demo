@@ -1,0 +1,131 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family:Lato,Helvetica,Arial,sans-serif
+}
+
+#nintendoBar {
+    height: 10px;
+    background: #f81a25
+}
+#nintendoImg {
+  width: 150px;
+  height: 50px;
+}
+
+#petesblindsBar {
+  height: 10px;
+  background: #ce0020
+}
+
+#petesblindsImg {
+  width: 170px;
+  height: 50px;
+}
+
+#cyberdyneBar {
+  height: 10px;
+  background: #c22f34
+}
+
+#cyberdyneImg {
+  width: 130px;
+  height: 100px;
+}
+
+img.aruba {
+    height: 10%;
+    width: 10%;
+}
+
+#switchlogo {
+    width: 35px;
+    height: 15px;
+}
+
+.table-condensed{
+  font-size: 15px;
+}
+
+td {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 2px;
+}
+
+ul.nav li a, ul.nav li a:visited {
+   color: white !important;
+}
+
+ul.nav li a:hover, ul.nav li a:active {
+   color: white !important;
+}
+
+ul.nav li.active a {
+   color: white !important;
+}
+
+.red {
+  color: #FF0000 !important;
+}
+
+.table-hover-cells > tbody > tr > th:hover,
+.table-hover-cells > tbody > tr > td:hover {
+  background-color: #f5f5f5;
+}
+
+.table-hover-cells > tbody > tr > th.active:hover,
+.table-hover-cells > tbody > tr > td.active:hover,
+.table-hover-cells > tbody > tr.active > th:hover,
+.table-hover-cells > tbody > tr.active > td:hover {
+  background-color: #e8e8e8;
+}
+
+.table-hover.table-hover-cells > tbody > tr:hover > th:hover,
+.table-hover.table-hover-cells > tbody > tr:hover > td:hover {
+  background-color: #e8e8e8;
+}
+
+.table-hover.table-hover-cells > tbody > tr.active:hover > th:hover,
+.table-hover.table-hover-cells > tbody > tr.active:hover > td:hover {
+  background-color: #d8d8d8;
+}
+
+.table-card-border>thead>tr>th,
+.table-card-border>tbody>tr>th,
+.table-card-border>tfoot>tr>th,
+.table-card-border>thead>tr>td,
+.table-card-border>tbody>tr>td,
+.table-card-border>tfoot>tr>td {
+  border-top: 4px solid black;
+  border-right: 4px solid black;
+  border-left: 4px solid black;
+}
+
+h1 > .divider:before,
+h2 > .divider:before,
+h3 > .divider:before,
+h4 > .divider:before,
+h5 > .divider:before,
+h6 > .divider:before,
+.h1 > .divider:before,
+.h2 > .divider:before,
+.h3 > .divider:before,
+.h4 > .divider:before,
+.h5 > .divider:before,
+.h6 > .divider:before {
+  color: #777;
+  content: "\0223E\0020";
+}
+
+#newvlan{
+ width:200px;
+}
+
+#newvlan option{
+ width:200px;
+}
+
+.ports>tbody>tr>td, .mytable>tbody>tr>th, .mytable>tfoot>tr>td, .mytable>tfoot>tr>th, .mytable>thead>tr>td, .mytable>thead>tr>th {
+    padding: 4px;
+}

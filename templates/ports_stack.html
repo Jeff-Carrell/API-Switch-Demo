@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+     $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+    </script>
+<div class="container">
+<h3>Port Configuration</h3>
+
+<br><br>
+ <table class="table table-striped table-hover table-sm">
+    <tr>
+      <th>
+        Type
+      </th>
+      <th>
+        Switch ID
+      </th>
+      <th>
+        Port
+      </th>
+      <th>
+        Assigned
+      </th>
+      <th>
+        Current Network
+      </th>
+      <th>
+        New Network
+      </th>
+      <th>
+        &nbsp;
+      </th>
+    </tr>
+
+{% for value in ports %}
+
+{% set list1 = value['id'].split('/') %}
+{% if 10 <= list1[1]|int <= 20 %}
+{% if "2/" not in value['id'] %}
+    <tr>
+        <td>
+            <form action="{{ url_for('port_update') }}", method="POST">
+
+            Aruba 2930F
+        </td>
+        <td>
+            FL3C88
+        </td>
+        <td>
+            {{ value['id'] }}
+        </td>
+        <td>
+            Alan Turring - Software Developer
+        </td>
+        <td>
+            {% for portvlan in listvlansports %}
+
+                {% if portvlan['port_id'] == value['id'] %}
+                    {% for usevlans in useablevlans %}
+                        {% if usevlans['vlan_id'] == portvlan['vlan_id'] %}
+                            {{ usevlans['vlan_name'] }} ({{ portvlan['vlan_id'] }})
+                        {% endif %}
+                    {%  endfor %}
+                     <input type="hidden" name="port_id" value="{{ portvlan['port_id'] }}">
+                {% endif %}
+            {% endfor %}
+        </td>
+        <td>
+
+            {% for portvlan in listvlansports %}
+                {% if portvlan['port_id'] == value['id'] and portvlan['port_mode'] %}
+                    {% for usevlans in useablevlans %}
+                        {% if usevlans['vlan_id'] == portvlan['vlan_id'] %}
+                            <select name='newvlan' id="newvlan">
+                            <option  value='{{ portvlan['vlan_id'] }}' selected>{{ usevlans['vlan_name'] }} - VLAN {{ portvlan['vlan_id'] }}</option>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+            {% for usevlans in useablevlans %}
+                <option  value='{{ usevlans['vlan_id'] }}'>{{ usevlans['vlan_name'] }} ({{ usevlans['vlan_id'] }})</option>
+            {% endfor %}
+              </select>
+        </td>
+        <td>
+            <input type="submit" name="PORT_{{ value['id'] }}" value="Submit">
+            </form>
+
+        </td>
+    </tr>
+{% endif %}
+{% endif %}
+{% endfor %}
+</table>
+
+
+</div>
+
+
+{% endblock %}
